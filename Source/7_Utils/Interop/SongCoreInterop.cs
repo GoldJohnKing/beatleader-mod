@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 
 namespace BeatLeader.Interop {
@@ -9,7 +9,7 @@ namespace BeatLeader.Interop {
         public static bool TryGetBeatmapRequirements(BeatmapLevel beatmap, BeatmapKey key, out string[]? requirements) {
             requirements = null;
             try {
-                var data = SongCore.Collections.RetrieveDifficultyData(beatmap, key);
+                var data = SongCore.Collections.GetCustomLevelSongDifficultyData(key);
                 if (data == null) return false;
                 var reqData = data.additionalDifficultyData;
                 if (reqData == null) return false;
